@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommerceWorld - Future of Commerce</title>
+    
+    <meta name="description" content="Redefining the future of digital commerce through expert insights, industry trends, and deep-dive analysis.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https: data:; img-src * data: blob:; connect-src https:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta property="og:title" content="CommerceWorld - Future of Commerce">
+    <meta property="og:description" content="Expert insights on digital strategy, e-commerce, and Web3 retail.">
+    <meta property="og:image" content="https://placehold.co/1200x630/facc15/000000?text=CommerceWorld">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=ranade@400,500,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Ranade', sans-serif; 
+            transition: background-color 0.4s ease, color 0.4s ease;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark-mode { 
+            background-color: #0a0a0a; 
+            color: #ffffff; 
+        }
+        #main-header {
+            background-color: rgba(255, 255, 255, 0.85) !important;
+            color: #000000 !important;
+            transition: background-color 0.4s ease;
+        }
+        body.dark-mode #main-header {
+            background-color: rgba(255, 255, 255, 0.97) !important;
+            color: #000000 !important;
+            border-color: rgba(0,0,0,0.1) !important;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3) !important;
+        }
+        body.dark-mode #main-header svg { stroke: #000000; }
+        body.dark-mode #main-header input {
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.12) !important;
+            color: #000 !important;
+        }
+        body.dark-mode #main-header input::placeholder { color: rgba(0,0,0,0.4) !important; }
+        body.dark-mode #ribbon-bar { background: rgba(5,5,5,0.97) !important; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body.dark-mode #sidebar {
+            background-color: rgba(15, 15, 15, 0.95);
+            color: #ffffff;
+            border-color: #333333;
+        }
+        body.dark-mode #sidebar svg { stroke: #ffffff; }
+        body.dark-mode .blog-border { border-color: #222222; }
+        body.dark-mode .page-btn { 
+            background-color: #222222; 
+            color: #ffffff; 
+            border-color: #444444; 
+        }
+        body.dark-mode .page-btn:hover:not(:disabled) { background-color: #444444; }
+        body.dark-mode .page-btn.active { background-color: #ffffff; color: #000000; }
+        body.dark-mode .page-btn:disabled { opacity: 0.3; }
+        .editable-text[contenteditable="true"] { 
+            outline: 2px dashed #facc15; 
+            padding: 4px; 
+            border-radius: 4px; 
+            cursor: text; 
+            transition: all 0.2s;
+        }
+        .editable-text[contenteditable="true"]:focus { 
+            outline: 2px solid #facc15; 
+            background: rgba(250, 204, 21, 0.1); 
+        }
+        body.dark-mode .editable-text[contenteditable="true"]:focus {
+            background: rgba(250, 204, 21, 0.2); 
+        }
+        *:focus-visible {
+            outline: 2px solid #facc15;
+            outline-offset: 2px;
+        }
+        .article-content-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-out;
+        }
+        .article-content-wrapper.expanded {
+            grid-template-rows: 1fr;
+        }
+        .article-content-inner {
+            overflow: hidden;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        body.dark-mode ::-webkit-scrollbar-thumb { background: #475569; }
+
+        @keyframes loadInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes loadInDown {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes loadInFade {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: translate(-50%, 20px) scale(0.9); }
+            100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+        }
+        @keyframes modalIn {
+            0% { opacity: 0; transform: scale(0.92) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        #canvas { opacity: 0; animation: loadInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0s forwards; }
+        #main-header { opacity: 0; animation: loadInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards; }
+        #ribbon-bar { opacity: 0; animation: loadInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards; }
+        .bottom-load { opacity: 0; animation: loadInFade 1s ease-out 1.2s forwards; }
+        .admin-toolbar-anim { animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* Modal overlay */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%; max-width: 420px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+            animation: modalIn 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+        body.dark-mode .modal-box {
+            background: #111111;
+            color: #ffffff;
+            border: 1px solid #2a2a2a;
+        }
+
+        /* ===================== ARTICLE CARDS ===================== */
+        .article-card {
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.28s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s ease;
+            cursor: default;
+        }
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 60px rgba(0,0,0,0.28);
+        }
+
+        /* Yellow top accent bar — restored */
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: #facc15;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+        .article-card:hover::before { opacity: 1; }
+
+        /* Full-bleed background image */
+        .card-img-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .card-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+        }
+        .article-card:hover .card-img-wrap img { transform: scale(1.07); }
+
+        /* Dark gradient so text is readable */
+        .card-img-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.08) 0%,
+                rgba(0,0,0,0.30) 35%,
+                rgba(0,0,0,0.82) 75%,
+                rgba(0,0,0,0.95) 100%
+            );
+            z-index: 1;
+        }
+
+        /* Badge floats top-left over the image */
+        .card-img-badge {
+            position: absolute;
+            top: 16px; left: 16px;
+            z-index: 5;
+        }
+
+        /* All text lives ON the image at the bottom */
+        .card-text-body {
+            position: relative;
+            z-index: 5;
+            padding: 18px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #fff;
+        }
+        .card-date {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.55;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.3;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.18s;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+        }
+        .card-title:hover { color: #facc15; }
+        .card-excerpt {
+            font-size: 13px;
+            line-height: 1.55;
+            opacity: 0.72;
+            color: #fff;
+        }
+
+        /* Read More button — sits on the image */
+        .card-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 8px;
+            padding: 7px 13px;
+            cursor: pointer;
+            align-self: flex-start;
+            margin-top: 4px;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .card-toggle:hover, .card-toggle.active {
+            background: #facc15;
+            border-color: #facc15;
+            color: #000;
+        }
+
+        /* Overlay that slides up over the entire card */
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10,10,10,0.96);
+            color: #fff;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transform: translateY(100%);
+            transition: transform 0.42s cubic-bezier(0.16,1,0.3,1);
+            overflow-y: auto;
+            border-radius: 18px;
+        }
+        .card-overlay.visible { transform: translateY(0); }
+        .overlay-close {
+            position: absolute;
+            top: 14px; right: 14px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        .overlay-close:hover { background: rgba(250,204,21,0.3); color: #facc15; }
+        .overlay-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+            padding-right: 36px;
+        }
+        .overlay-content {
+            font-size: 13.5px;
+            line-height: 1.75;
+            opacity: 0.82;
+            flex: 1;
+        }
+        .overlay-meta {
+            display: flex; align-items: center; gap-6px;
+            font-size: 11px; opacity: 0.45; font-weight: 600;
+            letter-spacing: 0.04em; text-transform: uppercase;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        /* Category badge colours */
+        .cat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+        .cat-web3      { background:#ede9fe; color:#6d28d9; }
+        .cat-tech      { background:#dbeafe; color:#1d4ed8; }
+        .cat-trend     { background:#dcfce7; color:#15803d; }
+        .cat-currency  { background:#fef9c3; color:#a16207; }
+        .cat-startups  { background:#ffedd5; color:#c2410c; }
+        .cat-trade     { background:#fee2e2; color:#b91c1c; }
+        .cat-latest    { background:#fef9c3; color:#a16207; }
+
+        /* Footer link edit button (shown in admin mode) */
+        .footer-link-wrap { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+        .footer-edit-btn {
+            display: none;
+            width: 20px; height: 20px;
+            background: #facc15;
+            border-radius: 4px;
+            align-items: center; justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            border: none;
+            transition: background 0.15s;
+        }
+        .footer-edit-btn:hover { background: #eab308; }
+        body.admin-active .footer-edit-btn { display: inline-flex; }
+
+        /* Link editor popover */
+        #link-editor-popover {
+            position: fixed;
+            z-index: 300;
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border: 1px solid #e5e7eb;
+            display: none;
+        }
+        body.dark-mode #link-editor-popover {
+            background: #1a1a1a;
+            border-color: #333;
+            color: #fff;
+        }
+
+        /* Password strength indicator */
+        .strength-bar { height: 4px; border-radius: 2px; transition: all 0.3s; }
+
+        /* ===================== THIS WEEK STRIP ===================== */
+        .thisweek-strip {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+        }
+        .thisweek-card {
+            flex-shrink: 0;
+            width: 240px;
+            height: 158px;
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.24s cubic-bezier(0.16,1,0.3,1), box-shadow 0.24s ease;
+        }
+        .thisweek-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 44px rgba(0,0,0,0.26);
+        }
+        .thisweek-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: #facc15;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .thisweek-card:hover::before { opacity: 1; }
+        .thisweek-card img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .thisweek-card:hover img { transform: scale(1.07); }
+        .thisweek-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.78) 100%);
+            z-index: 1;
+        }
+        .thisweek-card-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 10px 12px 12px;
+            z-index: 2;
+            color: #fff;
+        }
+        .thisweek-card-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-top: 5px;
+        }
+
+        /* ===================== TEXT-ONLY RECOMMENDED CARDS ===================== */
+        .text-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 18px 22px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+        }
+        .text-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: #facc15;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .text-card:hover { transform: translateX(5px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); border-color: #facc15; }
+        .text-card:hover::before { opacity: 1; }
+        body.dark-mode .text-card { background: #111; border-color: #222; }
+        body.dark-mode .text-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.45); }
+        .text-card-num {
+            font-size: 30px;
+            font-weight: 900;
+            opacity: 0.07;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 38px;
+            padding-top: 2px;
+            user-select: none;
+        }
+        .text-card-body { flex: 1; min-width: 0; }
+        .text-card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; flex-wrap: wrap; }
+        .text-card-title { font-size: 16px; font-weight: 800; line-height: 1.3; margin-bottom: 5px; }
+        .text-card-excerpt { font-size: 13px; opacity: 0.58; line-height: 1.55; }
+        .text-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #eab308;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .text-card-link:hover { color: #ca8a04; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- ===================== ADMIN LOGIN MODAL ===================== -->
+    <div id="admin-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <!-- Icon -->
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-400 mx-auto mb-6">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+
+            <!-- CREATE PASSWORD VIEW -->
+            <div id="modal-create">
+                <h2 class="text-2xl font-bold text-center mb-1">Create Admin Password</h2>
+                <p class="text-sm text-center opacity-60 mb-6">Set a secure password to protect your admin panel.</p>
+                <div class="flex flex-col gap-3">
+                    <input id="create-pw" type="password" placeholder="New password" autocomplete="new-password"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm font-medium bg-gray-50">
+                    <div id="pw-strength-bar" class="strength-bar bg-gray-200 w-full"></div>
+                    <p id="pw-strength-text" class="text-xs opacity-50 -mt-1"></p>
+                    <input id="create-pw-confirm" type="password" placeholder="Confirm password" autocomplete="new-password"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm font-medium bg-gray-50">
+                    <p id="create-error" class="text-xs text-red-500 hidden"></p>
+                    <button onclick="window.adminCreatePassword()" class="w-full bg-yellow-400 text-black font-bold py-3 rounded-xl hover:bg-yellow-500 transition mt-1 cursor-pointer">
+                        Set Password & Enter Admin
+                    </button>
+                </div>
+            </div>
+
+            <!-- LOGIN VIEW -->
+            <div id="modal-login" style="display:none;">
+                <h2 class="text-2xl font-bold text-center mb-1">Admin Login</h2>
+                <p class="text-sm text-center opacity-60 mb-6">Enter your admin password to continue.</p>
+                <div class="flex flex-col gap-3">
+                    <input id="login-pw" type="password" placeholder="Password" autocomplete="current-password"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm font-medium bg-gray-50"
+                        onkeydown="if(event.key==='Enter') window.adminLogin()">
+                    <p id="login-error" class="text-xs text-red-500 hidden"></p>
+                    <button onclick="window.adminLogin()" class="w-full bg-yellow-400 text-black font-bold py-3 rounded-xl hover:bg-yellow-500 transition cursor-pointer">
+                        Login
+                    </button>
+                    <button onclick="window.adminForgotPassword()" class="text-xs text-center opacity-50 hover:opacity-80 transition mt-1 cursor-pointer underline">
+                        Reset password (clears all admin data)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Close -->
+            <button onclick="window.closeAdminModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition cursor-pointer text-gray-500">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===================== LINK EDITOR POPOVER ===================== -->
+    <div id="link-editor-popover">
+        <p class="text-xs font-bold uppercase tracking-wider opacity-50 mb-3">Edit Link URL</p>
+        <input id="link-editor-text" type="text" placeholder="Link label" style="display:none;"
+            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm mb-2 bg-gray-50">
+        <input id="link-editor-href" type="text" placeholder="URL (e.g. /about or https://...)"
+            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm mb-3 bg-gray-50">
+        <div class="flex gap-2">
+            <button onclick="window.saveLinkEdit()" class="flex-1 bg-yellow-400 text-black font-bold py-2 rounded-lg hover:bg-yellow-500 transition text-sm cursor-pointer">Save</button>
+            <button onclick="window.closeLinkEditor()" class="flex-1 bg-gray-100 text-black font-bold py-2 rounded-lg hover:bg-gray-200 transition text-sm cursor-pointer">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 h-20 backdrop-blur-md z-50 flex items-center justify-between px-6 border-b border-gray-200 shadow-sm">
+        <div class="text-2xl font-bold tracking-tight select-none cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <span class="text-black">Commerce</span><span class="text-yellow-400">World</span>
+        </div>
+        
+        <div class="flex flex-1 mx-2 md:mx-6 relative min-w-0" style="max-width:460px">
+            <input type="text" id="searchInput" oninput="window.handleSearchInput(event)" placeholder="Search articles…" class="w-full bg-black/5 border border-black/10 text-black px-4 md:px-5 py-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all text-sm placeholder-black/40 min-w-0">
+            <svg class="absolute right-3 md:right-4 top-2.5 text-black/40 pointer-events-none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <div id="searchDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl overflow-hidden z-[60] max-h-80 overflow-y-auto text-black"></div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button id="darkModeBtn" aria-label="Toggle Dark Mode" onclick="window.toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200/50 transition-colors cursor-pointer flex items-center justify-center focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+                <!-- Moon (light mode) -->
+                <svg id="icon-moon" class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <!-- Sun (dark mode) -->
+                <svg id="icon-sun" class="pointer-events-none hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button aria-label="Open Sidebar Menu" onclick="window.openSidebar()" class="p-2 rounded-md hover:bg-gray-200/50 transition-colors cursor-pointer text-black focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+                <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Floating Category Ribbon -->
+    <div id="ribbon-bar" class="fixed top-20 left-0 right-0 h-14 bg-black/95 backdrop-blur-md z-40 border-b border-gray-800 flex items-center px-6 overflow-x-auto no-scrollbar transition-colors duration-400 text-white">
+        <div class="flex gap-8 max-w-4xl mx-auto w-full text-[13px] font-bold uppercase tracking-wider items-center">
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap hover:text-yellow-500 transition-colors border-b-2 border-yellow-400 py-1 opacity-100" style="color: inherit;" data-category="Latest">Latest</a>
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap opacity-60 hover:opacity-100 hover:text-yellow-500 transition-all py-1 border-b-2 border-transparent" style="color: inherit;" data-category="Trend">Trend</a>
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap opacity-60 hover:opacity-100 hover:text-yellow-500 transition-all py-1 border-b-2 border-transparent" style="color: inherit;" data-category="Trade">Trade</a>
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap opacity-60 hover:opacity-100 hover:text-yellow-500 transition-all py-1 border-b-2 border-transparent" style="color: inherit;" data-category="Tech">Tech</a>
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap opacity-60 hover:opacity-100 hover:text-yellow-500 transition-all py-1 border-b-2 border-transparent" style="color: inherit;" data-category="Currency">Currency</a>
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap opacity-60 hover:opacity-100 hover:text-yellow-500 transition-all py-1 border-b-2 border-transparent" style="color: inherit;" data-category="Startups">Startups</a>
+            <a href="#" onclick="event.preventDefault(); window.setRibbonActive(this)" class="ribbon-link whitespace-nowrap opacity-60 hover:opacity-100 hover:text-yellow-500 transition-all py-1 border-b-2 border-transparent" style="color: inherit;" data-category="Web3">Web3</a>
+        </div>
+    </div>
+
+    <!-- Sidebar backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/40 z-[59] hidden backdrop-blur-sm" onclick="window.closeSidebar()"></div>
+
+    <!-- Slide-out Sidebar -->
+    <aside id="sidebar" class="fixed top-0 right-0 w-72 h-full bg-white/95 backdrop-blur-xl shadow-2xl z-[60] transform translate-x-full transition-transform duration-300 ease-in-out border-l border-gray-200 pt-24 px-6 flex flex-col text-black">
+        <button aria-label="Close Sidebar Menu" onclick="window.closeSidebar()" class="absolute top-6 right-6 p-2 rounded-md hover:bg-gray-200/50 transition cursor-pointer text-current focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+            <svg class="pointer-events-none" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        
+        <div class="md:hidden relative mt-2 mb-6">
+            <input type="text" oninput="window.handleSearchInput(event)" placeholder="Search articles..." class="w-full bg-gray-100 border border-gray-200 text-current px-5 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all text-sm">
+            <svg class="absolute right-4 top-3 opacity-40 pointer-events-none" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+
+        <nav class="flex flex-col gap-6 mt-4">
+            <a href="#" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); window.closeSidebar();" class="flex items-center gap-4 text-xl font-medium hover:text-yellow-500 transition-colors group">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="group-hover:stroke-yellow-500 transition-colors"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg> 
+                Home
+            </a>
+            <a href="#" onclick="event.preventDefault(); window.closeSidebar();" class="flex items-center gap-4 text-xl font-medium hover:text-yellow-500 transition-colors group">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="group-hover:stroke-yellow-500 transition-colors"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 
+                Features
+            </a>
+            <a href="#" onclick="event.preventDefault(); window.closeSidebar();" class="flex items-center gap-4 text-xl font-medium hover:text-yellow-500 transition-colors group">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="group-hover:stroke-yellow-500 transition-colors"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
+                About
+            </a>
+        </nav>
+
+        <div class="mt-auto pb-8"></div>
+    </aside>
+
+    <!-- Main Canvas / Blog Layout -->
+    <main id="canvas" class="min-h-screen pt-44 px-4 md:px-12 pb-32 max-w-5xl mx-auto flex flex-col relative">
+
+        <!-- ── THIS WEEK strip ── -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xs font-bold uppercase tracking-[0.2em] opacity-40">This Week</h2>
+                <span class="text-xs opacity-30 font-medium">← scroll →</span>
+            </div>
+            <div id="thisweek-strip" class="thisweek-strip no-scrollbar"></div>
+        </section>
+
+        <!-- ── All Articles header ── -->
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold">All Articles</h2>
+            <span id="feed-label" class="text-xs opacity-40 font-semibold uppercase tracking-wider"></span>
+        </div>
+
+        <div id="blog-feed" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+        <div id="pagination" class="mt-14 flex items-center justify-between border-t border-gray-200 blog-border pt-8">
+            <button onclick="window.changePage(-1)" id="prevBtn" class="page-btn flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors font-medium disabled:opacity-30 disabled:cursor-not-allowed">
+                &larr; Previous
+            </button>
+            <div id="pageNumbers" class="flex gap-2"></div>
+            <button onclick="window.changePage(1)" id="nextBtn" class="page-btn flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors font-medium disabled:opacity-30 disabled:cursor-not-allowed">
+                Next &rarr;
+            </button>
+        </div>
+
+        <!-- ── Recommended for You ── -->
+        <section class="mt-20 pt-12 border-t border-gray-200 blog-border">
+            <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+                <div>
+                    <h2 class="text-2xl font-bold mb-1">Recommended for You</h2>
+                    <p id="rec-label" class="text-xs opacity-40 font-semibold uppercase tracking-wider">Trending this week</p>
+                </div>
+                <span class="text-xs bg-yellow-400 text-black font-bold px-3 py-1.5 rounded-full">Based on your reading</span>
+            </div>
+            <div id="recommended-feed" class="flex flex-col gap-3"></div>
+        </section>
+    </main>
+
+    <!-- Admin Floating Toolbar -->
+    <div id="admin-toolbar" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full shadow-2xl border border-gray-200 z-[100] hidden items-center gap-5 transition-all dark:bg-gray-900 dark:text-white dark:border-gray-700 admin-toolbar-anim">
+        <div class="flex items-center gap-2">
+            <svg class="text-yellow-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            <span class="font-bold text-sm tracking-widest uppercase text-yellow-500 hidden sm:inline-block">Admin</span>
+        </div>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <div class="flex items-center gap-3">
+            <span class="text-xs font-bold uppercase opacity-70">Text:</span>
+            <button onclick="window.adjustTextSize(-0.1)" aria-label="Decrease Text Size" class="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full font-bold transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400">-</button>
+            <span id="textSizeDisplay" class="text-sm font-mono font-bold w-10 text-center">1.0x</span>
+            <button onclick="window.adjustTextSize(0.1)" aria-label="Increase Text Size" class="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full font-bold transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400">+</button>
+        </div>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <button onclick="window.openAddArticle()" class="flex items-center gap-1.5 text-xs font-bold bg-yellow-400 text-black px-3 py-1.5 rounded-full hover:bg-yellow-500 transition cursor-pointer focus:outline-none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Article
+        </button>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <button onclick="window.openNewsletter()" class="flex items-center gap-1.5 text-xs font-bold border border-gray-300 text-current px-3 py-1.5 rounded-full hover:bg-gray-100 transition cursor-pointer focus:outline-none">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Newsletter</span>
+            <span id="subscriber-count-badge" class="hidden bg-yellow-400 text-black text-[10px] font-black px-1.5 py-0.5 rounded-full leading-none"></span>
+        </button>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <button onclick="window.openChangePassword()" class="text-xs font-bold opacity-60 hover:opacity-100 uppercase tracking-wider px-2 py-1 focus:outline-none transition-opacity cursor-pointer">
+            Change PW
+        </button>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <button onclick="window.toggleAdminMode()" class="text-xs font-bold text-red-500 hover:text-red-600 uppercase tracking-wider px-2 py-1 focus:outline-none cursor-pointer">
+            Exit
+        </button>
+    </div>
+
+    <!-- Newsletter Composer Modal -->
+    <div id="newsletter-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-box" style="max-width:620px;max-height:92vh;overflow-y:auto">
+            <div class="flex items-center gap-3 mb-1">
+                <div class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold">Send Newsletter</h2>
+                    <p class="text-xs opacity-50">Notify all subscribers about your latest content</p>
+                </div>
+            </div>
+
+            <!-- Subscriber count bar -->
+            <div id="nl-sub-bar" class="mt-4 mb-5 flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
+                <div class="flex items-center gap-2">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span id="nl-count-text" class="text-sm font-bold">0 subscribers</span>
+                </div>
+                <button onclick="window.exportSubscribers()" class="text-xs font-bold text-yellow-600 hover:text-yellow-700 transition cursor-pointer">Export CSV</button>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Subject line</label>
+                    <input id="nl-subject" type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50">
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Email body</label>
+                    <textarea id="nl-body" rows="7" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50 resize-y"></textarea>
+                </div>
+
+                <!-- Subscriber list -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="text-xs font-bold uppercase tracking-wider opacity-60">Subscriber List</label>
+                        <button onclick="window.clearAllSubscribers()" class="text-xs text-red-400 hover:text-red-600 transition cursor-pointer font-medium">Clear all</button>
+                    </div>
+                    <div id="nl-subscriber-list" class="max-h-40 overflow-y-auto flex flex-col gap-1.5 border border-gray-100 rounded-xl p-3 bg-gray-50"></div>
+                    <p class="text-xs opacity-40 mt-2">Subscribers who sign up on your site are saved here automatically.</p>
+                </div>
+
+                <div class="flex gap-3 pt-1">
+                    <button onclick="window.sendViaEmailApp()" class="flex-1 flex items-center justify-center gap-2 bg-yellow-400 text-black font-bold py-3 rounded-xl hover:bg-yellow-500 transition cursor-pointer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Open in Email App
+                    </button>
+                    <button onclick="window.copyEmailList()" class="px-4 py-3 rounded-xl border border-gray-200 text-sm font-bold hover:bg-gray-50 transition cursor-pointer">
+                        Copy Emails
+                    </button>
+                </div>
+                <p class="text-xs opacity-40 text-center -mt-1">"Open in Email App" puts all subscribers in BCC and opens your default email client ready to send.</p>
+            </div>
+
+            <button onclick="document.getElementById('newsletter-modal').style.display='none'" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition cursor-pointer text-gray-500">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Add / Edit Article Modal -->
+    <div id="article-editor-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-box" style="max-width:600px;max-height:92vh;overflow-y:auto">
+            <h2 id="aem-title" class="text-2xl font-bold mb-1">New Article</h2>
+            <p class="text-sm opacity-50 mb-6">Saved to your browser — no database needed.</p>
+            <div class="flex flex-col gap-4">
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Title *</label>
+                    <input id="aem-title-input" type="text" placeholder="e.g. The Future of Commerce" maxlength="120"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50">
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Category *</label>
+                    <select id="aem-category" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50">
+                        <option value="Web3">Web3</option>
+                        <option value="Tech">Tech</option>
+                        <option value="Trend">Trend</option>
+                        <option value="Currency">Currency</option>
+                        <option value="Startups">Startups</option>
+                        <option value="Trade">Trade</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Image URL <span class="normal-case font-normal">(optional — paste any image link)</span></label>
+                    <input id="aem-image" type="url" placeholder="https://images.unsplash.com/..."
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50">
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Short Excerpt *</label>
+                    <textarea id="aem-excerpt" rows="2" placeholder="One or two sentences summarising the article…" maxlength="220"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50 resize-none"></textarea>
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider opacity-60 block mb-1.5">Full Content *</label>
+                    <textarea id="aem-content" rows="6" placeholder="Write the full article here…"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm bg-gray-50 resize-y"></textarea>
+                </div>
+                <p id="aem-error" class="text-xs text-red-500 hidden"></p>
+                <div class="flex gap-3 mt-1">
+                    <button id="aem-delete-btn" onclick="window.confirmDeleteArticle()" class="hidden px-4 py-3 rounded-xl border border-red-200 text-red-500 text-sm font-bold hover:bg-red-50 transition cursor-pointer">
+                        Delete Article
+                    </button>
+                    <button onclick="window.saveArticleFromModal()" class="flex-1 bg-yellow-400 text-black font-bold py-3 rounded-xl hover:bg-yellow-500 transition cursor-pointer">
+                        Save Article
+                    </button>
+                </div>
+            </div>
+            <button onclick="document.getElementById('article-editor-modal').style.display='none'" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition cursor-pointer text-gray-500">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <input type="hidden" id="aem-editing-id">
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="change-pw-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-400 mx-auto mb-6">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-center mb-1">Change Password</h2>
+            <p class="text-sm text-center opacity-60 mb-6">Update your admin access password.</p>
+            <div class="flex flex-col gap-3">
+                <input id="change-pw-current" type="password" placeholder="Current password"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm font-medium bg-gray-50">
+                <input id="change-pw-new" type="password" placeholder="New password"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm font-medium bg-gray-50">
+                <input id="change-pw-confirm" type="password" placeholder="Confirm new password"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-black text-sm font-medium bg-gray-50">
+                <p id="change-pw-error" class="text-xs text-red-500 hidden"></p>
+                <p id="change-pw-success" class="text-xs text-green-600 hidden">Password updated successfully!</p>
+                <button onclick="window.saveNewPassword()" class="w-full bg-yellow-400 text-black font-bold py-3 rounded-xl hover:bg-yellow-500 transition mt-1 cursor-pointer">
+                    Update Password
+                </button>
+            </div>
+            <button onclick="document.getElementById('change-pw-modal').style.display='none'" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition cursor-pointer text-gray-500">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Newsletter Subscribe Section -->
+    <section class="w-full bg-yellow-400 text-black py-16 px-6 bottom-load">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Stay Ahead of the Curve</h2>
+            <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto font-medium">
+                Get the latest insights on commerce, tech, and design delivered straight to your inbox every week. No spam, just value.
+            </p>
+            <form onsubmit="window.handleSubscribe(event, this)" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                <input type="email" placeholder="Enter your email address" required class="flex-1 px-5 py-3 rounded-lg border-none focus:outline-none focus:ring-4 focus:ring-black/20 text-black shadow-sm font-medium">
+                <button type="submit" aria-label="Subscribe" class="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors shadow-sm cursor-pointer whitespace-nowrap min-w-[140px] flex items-center justify-center">
+                    <span>Subscribe</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16 px-6 border-t border-gray-900 bottom-load">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+            
+            <div class="col-span-1 md:col-span-2">
+                <div class="text-2xl font-bold tracking-tight mb-4 select-none cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <span class="text-white">Commerce</span><span class="text-yellow-400">World</span>
+                </div>
+                <p id="footer-desc" class="opacity-60 text-sm leading-relaxed mb-6 font-medium max-w-sm editable-text">
+                    Redefining the future of digital commerce through expert insights, industry trends, and deep-dive analysis.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="opacity-60 hover:text-yellow-400 hover:opacity-100 transition-all cursor-pointer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                    </a>
+                    <a href="#" class="opacity-60 hover:text-yellow-400 hover:opacity-100 transition-all cursor-pointer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="#" class="opacity-60 hover:text-yellow-400 hover:opacity-100 transition-all cursor-pointer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Company Links -->
+            <div class="col-span-1">
+                <h3 id="footer-heading-company" class="text-lg font-bold mb-4 editable-text">Company</h3>
+                <ul class="flex flex-col gap-3 opacity-70" id="footer-company-links">
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="company-1" class="footer-link editable-text hover:text-yellow-400 transition-colors">About Us</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('company-1', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="company-2" class="footer-link editable-text hover:text-yellow-400 transition-colors">Careers</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('company-2', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="company-3" class="footer-link editable-text hover:text-yellow-400 transition-colors">Privacy Policy</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('company-3', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="company-4" class="footer-link editable-text hover:text-yellow-400 transition-colors">Terms of Service</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('company-4', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Resources Links -->
+            <div class="col-span-1">
+                <h3 id="footer-heading-resources" class="text-lg font-bold mb-4 editable-text">Resources</h3>
+                <ul class="flex flex-col gap-3 opacity-70" id="footer-resources-links">
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="res-1" class="footer-link editable-text hover:text-yellow-400 transition-colors">API Documentation</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('res-1', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="res-2" class="footer-link editable-text hover:text-yellow-400 transition-colors">Community Forum</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('res-2', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="res-3" class="footer-link editable-text hover:text-yellow-400 transition-colors">Help Center</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('res-3', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                    <li class="footer-link-wrap">
+                        <a href="#" data-link-id="res-4" class="footer-link editable-text hover:text-yellow-400 transition-colors">Partnerships</a>
+                        <button class="footer-edit-btn" onclick="window.openLinkEditor('res-4', this)" title="Edit URL">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="footer-copyright" class="max-w-5xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center opacity-50 text-sm editable-text">
+            &copy; 2026 CommerceWorld. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const _K1 = '_kwp', _K2 = '_kws', _K3 = '_kwl';
+        const FOOTER_LINKS_KEY = 'cw_footer_links';
+
+        function _h(s) {
+            let h = 0x811c9dc5;
+            const t = s + '\x43\x57\x39\x38\x31\x5a';
+            for (let r = 0; r < 5; r++) {
+                for (let i = 0; i < t.length; i++) {
+                    h ^= t.charCodeAt(i);
+                    h = Math.imul(h, 0x01000193);
+                }
+            }
+            return (h >>> 0).toString(36) + (s.length * 31 + 17).toString(36);
+        }
+
+        function isAdminSessionActive() {
+            return sessionStorage.getItem(_K2) === '1';
+        }
+
+        function hasAdminPassword() {
+            return !!localStorage.getItem(_K1);
+        }
+
+        function syncAdminUI() {}
+
+        function _getLock() {
+            try { return JSON.parse(localStorage.getItem(_K3) || 'null'); } catch(e) { return null; }
+        }
+
+        function _checkLock() {
+            const d = _getLock();
+            if (!d) return null;
+            if (d.u && Date.now() < d.u) {
+                const m = Math.ceil((d.u - Date.now()) / 60000);
+                return `Access suspended. Try again in ${m} minute${m !== 1 ? 's' : ''}.`;
+            }
+            if (d.u) { localStorage.removeItem(_K3); }
+            return null;
+        }
+
+        function _recordFail() {
+            const d = _getLock() || { n: 0 };
+            d.n = (d.n || 0) + 1;
+            if (d.n >= 5) d.u = Date.now() + 30 * 60 * 1000;
+            localStorage.setItem(_K3, JSON.stringify(d));
+            return d.n;
+        }
+
+        function _resetLock() { localStorage.removeItem(_K3); }
+
+        window.openAdminModal = function() {
+            const modal = document.getElementById('admin-modal');
+            modal.style.display = 'flex';
+            if (hasAdminPassword()) {
+                document.getElementById('modal-create').style.display = 'none';
+                document.getElementById('modal-login').style.display = 'block';
+                setTimeout(() => document.getElementById('login-pw').focus(), 100);
+            } else {
+                document.getElementById('modal-create').style.display = 'block';
+                document.getElementById('modal-login').style.display = 'none';
+                setTimeout(() => document.getElementById('create-pw').focus(), 100);
+            }
+        };
+
+        window.closeAdminModal = function() {
+            document.getElementById('admin-modal').style.display = 'none';
+            document.getElementById('login-pw').value = '';
+            document.getElementById('create-pw').value = '';
+            document.getElementById('create-pw-confirm').value = '';
+            document.getElementById('login-error').classList.add('hidden');
+            document.getElementById('create-error').classList.add('hidden');
+        };
+
+        window.adminCreatePassword = function() {
+            const pw = document.getElementById('create-pw').value;
+            const c  = document.getElementById('create-pw-confirm').value;
+            const er = document.getElementById('create-error');
+            er.classList.add('hidden');
+            if (pw.length < 8) { er.textContent = 'Minimum 8 characters required.'; er.classList.remove('hidden'); return; }
+            if (pw !== c)       { er.textContent = 'Passwords do not match.';        er.classList.remove('hidden'); return; }
+            localStorage.setItem(_K1, _h(pw));
+            sessionStorage.setItem(_K2, '1');
+            window.closeAdminModal();
+        };
+
+        window.adminLogin = function() {
+            const pw  = document.getElementById('login-pw').value;
+            const er  = document.getElementById('login-error');
+            er.classList.add('hidden');
+
+            const lockMsg = _checkLock();
+            if (lockMsg) { er.textContent = lockMsg; er.classList.remove('hidden'); return; }
+
+            if (_h(pw) === localStorage.getItem(_K1)) {
+                _resetLock();
+                sessionStorage.setItem(_K2, '1');
+                window.closeAdminModal();
+            } else {
+                const n = _recordFail();
+                const left = Math.max(0, 5 - n);
+                er.textContent = left > 0
+                    ? `Incorrect password. ${left} attempt${left !== 1 ? 's' : ''} remaining.`
+                    : 'Access suspended for 30 minutes.';
+                er.classList.remove('hidden');
+                document.getElementById('login-pw').value = '';
+                document.getElementById('login-pw').focus();
+            }
+        };
+
+        window.adminLogout = function() {
+            sessionStorage.removeItem(_K2);
+            isAdminMode = false;
+            applyAdminState();
+            document.getElementById('admin-toolbar').classList.add('hidden');
+            document.getElementById('admin-toolbar').classList.remove('flex');
+            document.body.classList.remove('admin-active');
+            window.closeSidebar();
+        };
+
+        window.adminForgotPassword = function() {
+            if (confirm('This will erase your admin password and all saved settings. Continue?')) {
+                [_K1, _K3, FOOTER_LINKS_KEY].forEach(k => localStorage.removeItem(k));
+                sessionStorage.removeItem(_K2);
+                window.closeAdminModal();
+                location.reload();
+            }
+        };
+
+        // Open change password modal
+        window.openChangePassword = function() {
+            document.getElementById('change-pw-modal').style.display = 'flex';
+            document.getElementById('change-pw-error').classList.add('hidden');
+            document.getElementById('change-pw-success').classList.add('hidden');
+            document.getElementById('change-pw-current').value = '';
+            document.getElementById('change-pw-new').value = '';
+            document.getElementById('change-pw-confirm').value = '';
+            setTimeout(() => document.getElementById('change-pw-current').focus(), 100);
+        };
+
+        window.saveNewPassword = function() {
+            const current = document.getElementById('change-pw-current').value;
+            const newPw = document.getElementById('change-pw-new').value;
+            const confirm = document.getElementById('change-pw-confirm').value;
+            const errEl = document.getElementById('change-pw-error');
+            const successEl = document.getElementById('change-pw-success');
+            errEl.classList.add('hidden');
+            successEl.classList.add('hidden');
+
+            if (hashPassword(current) !== localStorage.getItem(ADMIN_PW_KEY)) {
+                errEl.textContent = 'Current password is incorrect.';
+                errEl.classList.remove('hidden'); return;
+            }
+            if (newPw.length < 6) {
+                errEl.textContent = 'New password must be at least 6 characters.';
+                errEl.classList.remove('hidden'); return;
+            }
+            if (newPw !== confirm) {
+                errEl.textContent = 'New passwords do not match.';
+                errEl.classList.remove('hidden'); return;
+            }
+            localStorage.setItem(ADMIN_PW_KEY, hashPassword(newPw));
+            successEl.classList.remove('hidden');
+            setTimeout(() => { document.getElementById('change-pw-modal').style.display = 'none'; }, 1500);
+        };
+
+        // Password strength meter
+        document.getElementById('create-pw').addEventListener('input', function() {
+            const pw = this.value;
+            const bar = document.getElementById('pw-strength-bar');
+            const text = document.getElementById('pw-strength-text');
+            if (!pw) { bar.style.width = '0%'; text.textContent = ''; return; }
+            let score = 0;
+            if (pw.length >= 6) score++;
+            if (pw.length >= 10) score++;
+            if (/[A-Z]/.test(pw)) score++;
+            if (/[0-9]/.test(pw)) score++;
+            if (/[^A-Za-z0-9]/.test(pw)) score++;
+            const levels = ['', 'Very Weak', 'Weak', 'Fair', 'Strong', 'Very Strong'];
+            const colors = ['', '#ef4444', '#f97316', '#eab308', '#22c55e', '#16a34a'];
+            const widths = ['0%', '20%', '40%', '60%', '80%', '100%'];
+            bar.style.width = widths[score];
+            bar.style.background = colors[score];
+            text.textContent = levels[score];
+            text.style.color = colors[score];
+        });
+
+        // =============================================
+        // DARK MODE (with persistence)
+        // =============================================
+        window.toggleDarkMode = function() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('cw_dark_mode', isDark ? '1' : '0');
+            document.getElementById('icon-moon').classList.toggle('hidden', isDark);
+            document.getElementById('icon-sun').classList.toggle('hidden', !isDark);
+        };
+
+        // Restore dark mode preference on load
+        if (localStorage.getItem('cw_dark_mode') === '1') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('icon-moon').classList.add('hidden');
+            document.getElementById('icon-sun').classList.remove('hidden');
+        }
+
+        // =============================================
+        // SIDEBAR OPEN / CLOSE
+        // =============================================
+        window.openSidebar = function() {
+            document.getElementById('sidebar').classList.remove('translate-x-full');
+            document.getElementById('sidebar-backdrop').classList.remove('hidden');
+        };
+        window.closeSidebar = function() {
+            document.getElementById('sidebar').classList.add('translate-x-full');
+            document.getElementById('sidebar-backdrop').classList.add('hidden');
+        };
+
+        (function() {
+            let _n = 0, _t = null;
+            const _el = document.querySelector('header .text-2xl');
+            if (_el) {
+                _el.addEventListener('click', function() {
+                    _n++;
+                    clearTimeout(_t);
+                    _t = setTimeout(function() { _n = 0; }, 2500);
+                    if (_n >= 7) {
+                        _n = 0;
+                        clearTimeout(_t);
+                        if (!isAdminSessionActive()) window.openAdminModal();
+                    }
+                });
+            }
+        })();
+
+        // Close modals on overlay click
+        document.getElementById('admin-modal').addEventListener('click', function(e) {
+            if (e.target === this) window.closeAdminModal();
+        });
+        document.getElementById('change-pw-modal').addEventListener('click', function(e) {
+            if (e.target === this) this.style.display = 'none';
+        });
+
+        // =============================================
+        // FOOTER LINK EDITOR
+        // =============================================
+        let activeLinkId = null;
+        let activeLinkEl = null;
+
+        const FOOTER_CONTENT_KEY = 'cw_footer_content';
+
+        // Load saved footer links + text content from localStorage
+        function loadFooterLinks() {
+            // Restore link href + text
+            const saved = localStorage.getItem(FOOTER_LINKS_KEY);
+            if (saved) {
+                try {
+                    const links = JSON.parse(saved);
+                    Object.entries(links).forEach(([id, data]) => {
+                        const el = document.querySelector(`[data-link-id="${id}"]`);
+                        if (el) {
+                            el.textContent = data.text;
+                            el.setAttribute('href', data.href);
+                        }
+                    });
+                } catch(e) {}
+            }
+            // Restore other footer editable text (headings, description, copyright)
+            const savedContent = localStorage.getItem(FOOTER_CONTENT_KEY);
+            if (savedContent) {
+                try {
+                    const content = JSON.parse(savedContent);
+                    Object.entries(content).forEach(([id, text]) => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = text;
+                    });
+                } catch(e) {}
+            }
+        }
+
+        function saveFooterLinks() {
+            const links = {};
+            document.querySelectorAll('.footer-link').forEach(el => {
+                const id = el.getAttribute('data-link-id');
+                if (id) links[id] = { text: el.textContent.trim(), href: el.getAttribute('href') };
+            });
+            localStorage.setItem(FOOTER_LINKS_KEY, JSON.stringify(links));
+        }
+
+        const FOOTER_TEXT_IDS = ['footer-desc', 'footer-heading-company', 'footer-heading-resources', 'footer-copyright'];
+
+        // Auto-save all footer editable elements on blur
+        document.addEventListener('blur', function(e) {
+            if (!isAdminMode) return;
+            const el = e.target;
+            // Footer link labels
+            if (el.classList.contains('footer-link') && el.getAttribute('data-link-id')) {
+                saveFooterLinks();
+                showSavedToast();
+            }
+            // Footer text blocks (headings, description, copyright)
+            if (FOOTER_TEXT_IDS.includes(el.id)) {
+                const content = {};
+                FOOTER_TEXT_IDS.forEach(id => {
+                    const node = document.getElementById(id);
+                    if (node) content[id] = node.textContent.trim();
+                });
+                localStorage.setItem(FOOTER_CONTENT_KEY, JSON.stringify(content));
+                showSavedToast();
+            }
+        }, true);
+
+        // URL-only popover (text is now directly editable)
+        window.openLinkEditor = function(linkId, btnEl) {
+            activeLinkId = linkId;
+            activeLinkEl = document.querySelector(`[data-link-id="${linkId}"]`);
+            const popover = document.getElementById('link-editor-popover');
+            document.getElementById('link-editor-text').value = activeLinkEl.textContent.trim();
+            document.getElementById('link-editor-href').value = activeLinkEl.getAttribute('href') || '#';
+
+            const rect = btnEl.getBoundingClientRect();
+            const popoverWidth = 300;
+            let left = rect.left;
+            if (left + popoverWidth > window.innerWidth - 16) left = window.innerWidth - popoverWidth - 16;
+            popover.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+            popover.style.left = left + 'px';
+            popover.style.display = 'block';
+            setTimeout(() => document.getElementById('link-editor-href').focus(), 50);
+        };
+
+        window.saveLinkEdit = function() {
+            if (!activeLinkEl) return;
+            const newText = document.getElementById('link-editor-text').value.trim();
+            const newHref = document.getElementById('link-editor-href').value.trim() || '#';
+            if (newText) activeLinkEl.textContent = newText;
+            activeLinkEl.setAttribute('href', newHref);
+            saveFooterLinks();
+            showSavedToast();
+            window.closeLinkEditor();
+        };
+
+        // Saved toast notification
+        function showSavedToast() {
+            let toast = document.getElementById('saved-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'saved-toast';
+                toast.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg z-[200] transition-opacity';
+                toast.textContent = 'Saved';
+                document.body.appendChild(toast);
+            }
+            toast.style.opacity = '1';
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => { toast.style.opacity = '0'; }, 1800);
+        }
+
+        window.closeLinkEditor = function() {
+            document.getElementById('link-editor-popover').style.display = 'none';
+            activeLinkId = null;
+            activeLinkEl = null;
+        };
+
+        // Close link editor when clicking outside
+        document.addEventListener('click', function(e) {
+            const popover = document.getElementById('link-editor-popover');
+            if (popover.style.display !== 'none' && 
+                !popover.contains(e.target) && 
+                !e.target.closest('.footer-edit-btn')) {
+                window.closeLinkEditor();
+            }
+        });
+
+        // =============================================
+        // BLOG DATA & STATE
+        // =============================================
+        const defaultArticles = [
+            { id: 7,  title: "Stablecoin Rules: What New Regulations Mean for Merchants", category: "Currency", date: "Jun 01, 2026",
+              image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Regulators worldwide are finally writing clear rules for stablecoins — here is what every online merchant needs to know now.",
+              content: "After years of regulatory ambiguity, the EU's MiCA framework and the US Stablecoin Transparency Act are bringing much-needed clarity. Merchants who accept stablecoins must now maintain audit logs, verify issuer reserves, and comply with AML rules at the point of checkout. While compliance costs are real, the upside is significant: stable regulatory footing is accelerating institutional adoption, pushing payment processors to build native stablecoin rails into their core products. Merchants who adapt early will gain a competitive edge as cross-border transaction fees collapse." },
+            { id: 8,  title: "Generative AI in Product Photography", category: "Tech", date: "May 31, 2026",
+              image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=700&h=400&fit=crop&auto=format",
+              excerpt: "E-commerce brands are replacing expensive studio shoots with AI-generated imagery — and the results are indistinguishable.",
+              content: "A new wave of generative AI tools is making professional product photography accessible to brands of every size. Models trained on millions of commercial images can now place any product into photorealistic scenes, swap backgrounds, add lighting effects, and even animate still shots — all from a single reference photo. Early adopters report a 70% reduction in content production costs and a 3x increase in the number of creative variations they can A/B test. The shift is not just economic: brands now iterate on creative direction in hours instead of weeks." },
+            { id: 9,  title: "D2C Brands' Playbook for Sustainable Profitability", category: "Startups", date: "May 30, 2026",
+              image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Direct-to-consumer brands are rewriting their operating models with lean operations and owned communities.",
+              content: "The DTC brands that survived the post-pandemic correction share a common playbook: invest in owned communities over paid acquisition, build contribution-margin-positive SKU sets from day one, and treat retention as a product problem rather than a marketing problem. Subscription revenue now accounts for over 40% of GMV for the top 100 independent DTC brands. Those who ignored unit economics in favor of growth are being acquired at distressed valuations or shut down entirely. The era of 'grow at all costs' has given way to the era of 'profitable at every unit.'" },
+            { id: 10, title: "NFT Ticketing Goes Mainstream at Major Venues", category: "Web3", date: "May 29, 2026",
+              image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Concert halls and sports arenas are adopting blockchain tickets to kill scalping and reward loyal fans.",
+              content: "Blockchain-based ticketing is moving from pilot to production at scale. Three of the top five live entertainment companies now issue NFT tickets for select events, offering fans verifiable provenance, resale royalties that flow back to artists, and programmable perks like backstage access unlocked by on-chain history. The anti-scalping mechanics are especially compelling: smart contracts can enforce price ceilings on secondary markets while still allowing peer-to-peer resale. Fan engagement metrics for NFT-ticketed events show 28% higher repeat attendance versus traditional tickets." },
+            { id: 11, title: "Last-Mile Delivery Wars Escalate in 2026", category: "Trade", date: "May 27, 2026",
+              image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Retailers and logistics giants are battling for dominance in the final and most expensive stretch of delivery.",
+              content: "Last-mile delivery costs represent 53% of total shipping expenses, making it the battleground where e-commerce margins are won or lost. In 2026, the competition has intensified dramatically: major retailers are building proprietary delivery fleets, autonomous vehicle startups are winning city contracts, and drone corridors are being approved across suburban corridors in 14 countries. Dark stores — micro-fulfillment centers embedded in urban neighbourhoods — are cutting same-day delivery windows to under 90 minutes for grocery and high-demand categories. The brands that own their last mile are reporting 18% higher customer satisfaction scores." },
+            { id: 12, title: "The Gen Z Shopping Manifesto", category: "Trend", date: "May 26, 2026",
+              image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=700&h=400&fit=crop&auto=format",
+              excerpt: "How the post-Millennial generation is forcing brands to rethink discovery, values, and checkout from scratch.",
+              content: "Gen Z consumers, now the largest demographic cohort by purchasing power, operate by a fundamentally different shopping logic. Discovery happens on short-form video, not search engines. Brand trust is earned through transparency and values alignment, not heritage. Checkout must be frictionless and payment-agnostic — BNPL, crypto, and digital wallets are table stakes. Brands that fail to meet Gen Z on their own terms are losing market share rapidly to digitally-native challengers. The most effective marketing for this cohort is creator-led and feels unscripted, even when it is not." },
+            { id: 1, title: "The Web3 Retail Revolution", category: "Web3", date: "May 28, 2026",
+              image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=700&h=400&fit=crop&auto=format",
+              excerpt: "How decentralized protocols are reshaping consumer trust and digital ownership.",
+              content: "Web3 is fundamentally changing how we think about digital goods. By utilizing blockchain technology, retailers are now able to offer verifiable ownership of digital assets. NFT-backed receipts, decentralized identity, and smart-contract loyalty programs are no longer experiments — they are production-ready systems being deployed by forward-thinking brands worldwide. The shift represents a fundamental rebalancing of power from platform to consumer." },
+            { id: 2, title: "AI-Driven Supply Chains", category: "Tech", date: "May 25, 2026",
+              image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Predictive algorithms are solving the bullwhip effect in global logistics.",
+              content: "The bullwhip effect has plagued supply chains for decades. With the advent of advanced predictive AI models, companies can now forecast demand spikes with incredible accuracy. Major logistics operators report a 34% reduction in excess inventory and a 22% improvement in on-time delivery after deploying machine-learning demand engines. These systems continuously retrain on live sales data, supplier lead times, and even geopolitical signals to keep supply in lockstep with real-world demand." },
+            { id: 3, title: "Emerging Markets in 2026", category: "Trend", date: "May 20, 2026",
+              image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Why Southeast Asia remains the highest growth sector for e-commerce.",
+              content: "Mobile penetration in Southeast Asia has hit unprecedented levels. This infrastructure boom has laid the groundwork for a massive surge in localised e-commerce platforms. Vietnam, Indonesia, and the Philippines are seeing 40%+ year-on-year GMV growth. Local super-apps are replacing traditional retail at a pace that outstrips even China's early e-commerce era, powered by embedded fintech and same-day drone delivery corridors in major metro areas." },
+            { id: 4, title: "Cryptocurrency as Standard Tender", category: "Currency", date: "May 15, 2026",
+              image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Major retailers are finally dropping fiat conversion fees.",
+              content: "In a landmark shift, several Fortune 500 retailers have announced native crypto checkouts without instantly converting to fiat, signaling deep trust in the digital economy. Stablecoin payments now account for 11% of all online transactions in markets where crypto regulation has matured. The remaining friction — wallet UX and tax reporting — is rapidly being abstracted away by new middleware layers built specifically for mainstream consumers." },
+            { id: 5, title: "The End of the Startup Era?", category: "Startups", date: "May 10, 2026",
+              image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Bootstrapping is back in style as VC funding models shift.",
+              content: "With interest rates stabilizing at higher levels, the 'growth at all costs' era is officially over. Today's founders are focusing on immediate profitability, lean teams, and revenue-based financing over dilutive equity rounds. Incubators report a 60% rise in bootstrapped applications. The new benchmark is not MAU or GMV — it is contribution margin from day one. Investors who adapt to this new reality are finding better-quality deal flow than the frothy 2021 vintage." },
+            { id: 6, title: "Global Trade Tariffs and Digital Goods", category: "Trade", date: "May 05, 2026",
+              image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=700&h=400&fit=crop&auto=format",
+              excerpt: "Navigating the complex new regulations around cross-border digital sales.",
+              content: "As digital goods become a larger share of global GDP, regulatory bodies are stepping in. Understanding the new tariff structure is crucial for any SaaS company with international revenue. The OECD's Pillar One framework, combined with country-specific digital services taxes, means effective rates can exceed 25% in some markets. Forward-looking finance teams are restructuring entity hierarchies and building real-time tax-engine integrations to stay compliant without sacrificing pricing competitiveness." }
+        ];
+
+        // Dynamic articles array — populated from localStorage + defaults
+        let articles = [];
+
+        const CW_ARTICLES_KEY = 'cw_custom_articles';
+
+        function loadArticles() {
+            let custom = [];
+            try { custom = JSON.parse(localStorage.getItem(CW_ARTICLES_KEY) || '[]'); } catch(e) {}
+            // Custom (admin-created) articles first, then built-in defaults
+            articles = [...custom, ...defaultArticles];
+        }
+
+        function saveCustomArticle(article) {
+            let custom = [];
+            try { custom = JSON.parse(localStorage.getItem(CW_ARTICLES_KEY) || '[]'); } catch(e) {}
+            // If editing existing custom article
+            const idx = custom.findIndex(a => a.id === article.id);
+            if (idx !== -1) custom[idx] = article;
+            else custom.unshift(article);
+            localStorage.setItem(CW_ARTICLES_KEY, JSON.stringify(custom));
+            loadArticles();
+        }
+
+        function deleteCustomArticle(id) {
+            let custom = [];
+            try { custom = JSON.parse(localStorage.getItem(CW_ARTICLES_KEY) || '[]'); } catch(e) {}
+            custom = custom.filter(a => a.id !== id);
+            localStorage.setItem(CW_ARTICLES_KEY, JSON.stringify(custom));
+            loadArticles();
+        }
+
+        function isCustomArticle(id) {
+            let custom = [];
+            try { custom = JSON.parse(localStorage.getItem(CW_ARTICLES_KEY) || '[]'); } catch(e) {}
+            return custom.some(a => a.id === id);
+        }
+
+        let currentPage = 1;
+        const itemsPerPage = 6;
+        let currentCategory = 'Latest';
+        let searchQuery = '';
+        let isAdminMode = false;
+        let textScale = 1.0;
+
+        const categoryClass = {
+            'Web3': 'cat-web3', 'Tech': 'cat-tech', 'Trend': 'cat-trend',
+            'Currency': 'cat-currency', 'Startups': 'cat-startups', 'Trade': 'cat-trade'
+        };
+
+        const categoryIcon = {
+            'Web3':     `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+            'Tech':     `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+            'Trend':    `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
+            'Currency': `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+            'Startups': `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>`,
+            'Trade':    `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`
+        };
+
+        function renderFeed() {
+            const feedContainer = document.getElementById('blog-feed');
+            feedContainer.innerHTML = '';
+
+            let filtered = articles;
+            if (currentCategory !== 'Latest') {
+                filtered = filtered.filter(a => a.category === currentCategory);
+            }
+            if (searchQuery.trim() !== '') {
+                filtered = filtered.filter(a =>
+                    a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    a.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+            }
+
+            const totalPages = Math.ceil(filtered.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const paginated = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+            if (paginated.length === 0) {
+                feedContainer.innerHTML = `<div class="col-span-2 py-16 text-center opacity-50 italic">No articles found for "${searchQuery || currentCategory}".</div>`;
+            } else {
+                paginated.forEach((article, i) => {
+                    const badgeClass = categoryClass[article.category] || 'cat-latest';
+                    const icon = categoryIcon[article.category] || '';
+                    const readMins = Math.max(1, Math.ceil(article.content.split(' ').length / 200));
+                    const imgSrc = article.image || `https://picsum.photos/seed/${article.id}comic/700/400`;
+
+                    const canEdit = isAdminMode && isCustomArticle(article.id);
+                    const editBtn = canEdit
+                        ? `<button onclick="window.openAddArticle('${article.id}')" title="Edit article"
+                              style="position:absolute;top:10px;right:10px;z-index:20;background:rgba(250,204,21,0.92);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px)">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                           </button>` : '';
+
+                    feedContainer.innerHTML += `
+                        <article id="card-${article.id}" class="article-card">
+
+                            <!-- Full-bleed background image -->
+                            <div class="card-img-wrap">
+                                <img src="${imgSrc}" alt="${article.title}" loading="lazy"
+                                     onerror="this.src='https://picsum.photos/seed/${article.id}/700/400'">
+                            </div>
+                            <div class="card-img-overlay"></div>
+
+                            <!-- Category badge — floats top-left over photo -->
+                            <span class="card-img-badge cat-badge ${badgeClass}">${icon} ${article.category}</span>
+
+                            ${editBtn}
+
+                            <!-- Text content sits on the image (bottom of card) -->
+                            <div class="card-text-body">
+                                <span class="card-date">${article.date}</span>
+                                <h2 class="card-title editable-text" onclick="window.toggleCard('${article.id}')">${article.title}</h2>
+                                <p class="card-excerpt editable-text">${article.excerpt}</p>
+                                <button id="toggle-btn-${article.id}" onclick="window.toggleCard('${article.id}')" class="card-toggle">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <span class="toggle-label">Read More</span>
+                                </button>
+                            </div>
+
+                            <!-- Slide-up overlay with full content -->
+                            <div id="card-overlay-${article.id}" class="card-overlay">
+                                <button class="overlay-close" onclick="window.closeCard('${article.id}')" title="Close">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                </button>
+                                <span class="cat-badge ${badgeClass}" style="align-self:flex-start">${icon} ${article.category}</span>
+                                <h3 class="overlay-title editable-text">${article.title}</h3>
+                                <p class="overlay-content editable-text">${article.content}</p>
+                                <div class="overlay-meta" style="display:flex;align-items:center;gap:6px;">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    ${readMins} min read &nbsp;·&nbsp; ${article.date}
+                                </div>
+                            </div>
+
+                        </article>
+                    `;
+                });
+            }
+
+            renderPagination(totalPages);
+            applyAdminState();
+            if (textScale !== 1.0) applyTextScale();
+        }
+
+        function renderPagination(totalPages) {
+            const pageNumbers = document.getElementById('pageNumbers');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            pageNumbers.innerHTML = '';
+            if (totalPages <= 1) {
+                document.getElementById('pagination').style.display = 'none';
+                return;
+            } else {
+                document.getElementById('pagination').style.display = 'flex';
+            }
+            for (let i = 1; i <= totalPages; i++) {
+                const isActive = i === currentPage ? 'active' : '';
+                pageNumbers.innerHTML += `<button onclick="window.goToPage(${i})" class="page-btn w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors font-medium ${isActive}">${i}</button>`;
+            }
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+        }
+
+        window.changePage = (direction) => {
+            currentPage += direction;
+            renderFeed();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.goToPage = (page) => {
+            currentPage = page;
+            renderFeed();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.toggleCard = (id) => {
+            const overlay = document.getElementById(`card-overlay-${id}`);
+            const btn     = document.getElementById(`toggle-btn-${id}`);
+            if (!overlay) return;
+            const isOpen = overlay.classList.toggle('visible');
+            if (btn) {
+                btn.classList.toggle('active', isOpen);
+                btn.querySelector('.toggle-label').textContent = isOpen ? 'Close' : 'Read More';
+            }
+        };
+
+        window.closeCard = (id) => {
+            const overlay = document.getElementById(`card-overlay-${id}`);
+            const btn     = document.getElementById(`toggle-btn-${id}`);
+            if (overlay) overlay.classList.remove('visible');
+            if (btn) {
+                btn.classList.remove('active');
+                btn.querySelector('.toggle-label').textContent = 'Read More';
+            }
+        };
+
+        window.toggleAccordion = window.toggleCard;
+
+        window.setRibbonActive = (element) => {
+            document.querySelectorAll('.ribbon-link').forEach(link => {
+                link.classList.remove('opacity-100', 'border-yellow-400');
+                link.classList.add('opacity-60', 'border-transparent');
+            });
+            element.classList.remove('opacity-60', 'border-transparent');
+            element.classList.add('opacity-100', 'border-yellow-400');
+            const cat = element.getAttribute('data-category');
+            currentCategory = cat;
+            currentPage = 1;
+            searchQuery = '';
+            document.getElementById('searchInput').value = '';
+            recordCategoryView(cat);
+            renderFeed();
+            renderRecommended();
+        };
+
+        // =============================================
+        // READING HISTORY / ALGORITHM
+        // =============================================
+        const PREF_CATS_KEY = 'cw_pref_cats';
+
+        function recordCategoryView(cat) {
+            if (!cat || cat === 'Latest') return;
+            let prefs = [];
+            try { prefs = JSON.parse(localStorage.getItem(PREF_CATS_KEY) || '[]'); } catch(e) {}
+            prefs = prefs.filter(c => c !== cat);
+            prefs.unshift(cat);
+            localStorage.setItem(PREF_CATS_KEY, JSON.stringify(prefs.slice(0, 12)));
+        }
+
+        function getPreferredCategories() {
+            try { return JSON.parse(localStorage.getItem(PREF_CATS_KEY) || '[]'); } catch(e) { return []; }
+        }
+
+        // =============================================
+        // THIS WEEK STRIP
+        // =============================================
+        function renderThisWeek() {
+            const strip = document.getElementById('thisweek-strip');
+            if (!strip) return;
+            // Sort newest first, take 5
+            const thisWeek = [...articles]
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 5);
+            strip.innerHTML = '';
+            thisWeek.forEach(article => {
+                const badgeClass = categoryClass[article.category] || 'cat-latest';
+                const icon = categoryIcon[article.category] || '';
+                const imgSrc = article.image || `https://picsum.photos/seed/${article.id}/400/200`;
+                const card = document.createElement('div');
+                card.className = 'thisweek-card';
+                card.addEventListener('click', () => window.openArticleModal(article.id));
+                card.innerHTML = `
+                    <img src="${imgSrc}" alt="${article.title}" loading="lazy"
+                         onerror="this.src='https://picsum.photos/seed/${article.id}/400/200'">
+                    <div class="thisweek-card-overlay"></div>
+                    <div class="thisweek-card-content">
+                        <span class="cat-badge ${badgeClass}" style="font-size:10px;padding:3px 8px">${icon} ${article.category}</span>
+                        <div class="thisweek-card-title">${article.title}</div>
+                    </div>
+                `;
+                strip.appendChild(card);
+            });
+        }
+
+        // =============================================
+        // RECOMMENDED TEXT-ONLY CARDS
+        // =============================================
+        function renderRecommended() {
+            const container = document.getElementById('recommended-feed');
+            const labelEl   = document.getElementById('rec-label');
+            if (!container) return;
+
+            const prefs = getPreferredCategories();
+            const q = searchQuery.toLowerCase();
+
+            const scored = articles.map(a => {
+                let score = 0;
+                const prefIdx = prefs.indexOf(a.category);
+                if (prefIdx !== -1) score += Math.max(0, 10 - prefIdx);
+                if (q && (a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q))) score += 15;
+                return { ...a, score };
+            }).sort((a, b) => b.score - a.score || new Date(b.date) - new Date(a.date));
+
+            const picks = scored.slice(0, 4);
+
+            if (labelEl) {
+                labelEl.textContent = prefs.length > 0
+                    ? `Based on your interest in ${prefs.slice(0,2).join(' & ')}`
+                    : 'Trending this week';
+            }
+
+            container.innerHTML = '';
+            picks.forEach((article, i) => {
+                const badgeClass = categoryClass[article.category] || 'cat-latest';
+                const icon = categoryIcon[article.category] || '';
+                const readMins = Math.max(1, Math.ceil(article.content.split(' ').length / 200));
+                const card = document.createElement('div');
+                card.className = 'text-card';
+                card.addEventListener('click', () => window.openArticleModal(article.id));
+                card.innerHTML = `
+                    <div class="text-card-num">${String(i+1).padStart(2,'0')}</div>
+                    <div class="text-card-body">
+                        <div class="text-card-meta">
+                            <span class="cat-badge ${badgeClass}">${icon} ${article.category}</span>
+                            <span style="font-size:11px;opacity:0.4;font-weight:600">${article.date}</span>
+                            <span style="font-size:11px;opacity:0.4;font-weight:600">${readMins} min read</span>
+                        </div>
+                        <div class="text-card-title editable-text">${article.title}</div>
+                        <div class="text-card-excerpt editable-text">${article.excerpt}</div>
+                        <span class="text-card-link">Read article &rarr;</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // =============================================
+        // ARTICLE READER MODAL (used by This Week + Recommended)
+        // =============================================
+        window.openArticleModal = function(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+            recordCategoryView(article.category);
+
+            let modal = document.getElementById('article-modal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'article-modal';
+                modal.className = 'modal-overlay';
+                modal.style.zIndex = '300';
+                modal.innerHTML = `
+                    <div class="modal-box" style="max-width:600px;padding:0;overflow:hidden;max-height:90vh;display:flex;flex-direction:column">
+                        <div id="am-img-wrap" style="height:220px;flex-shrink:0;position:relative;overflow:hidden">
+                            <img id="am-img-el" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+                            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 25%,rgba(0,0,0,0.88))"></div>
+                            <button onclick="document.getElementById('article-modal').style.display='none'"
+                                style="position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                            </button>
+                            <div id="am-img-meta" style="position:absolute;bottom:14px;left:18px;right:18px;color:#fff"></div>
+                        </div>
+                        <div style="padding:24px 28px 32px;overflow-y:auto;flex:1">
+                            <h2 id="am-title" style="font-size:22px;font-weight:800;line-height:1.3;margin-bottom:16px"></h2>
+                            <p id="am-content" style="font-size:14.5px;line-height:1.82;opacity:0.82"></p>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+            }
+
+            const badgeClass = categoryClass[article.category] || 'cat-latest';
+            const icon = categoryIcon[article.category] || '';
+            const readMins = Math.max(1, Math.ceil(article.content.split(' ').length / 200));
+            document.getElementById('am-img-el').src = article.image || `https://picsum.photos/seed/${article.id}/700/400`;
+            document.getElementById('am-img-el').alt = article.title;
+            document.getElementById('am-img-meta').innerHTML = `
+                <span class="cat-badge ${badgeClass}">${icon} ${article.category}</span>
+                <span style="display:block;font-size:11px;opacity:0.55;margin-top:6px;font-weight:600;letter-spacing:0.04em">${article.date} &nbsp;·&nbsp; ${readMins} min read</span>
+            `;
+            document.getElementById('am-title').textContent = article.title;
+            document.getElementById('am-content').textContent = article.content;
+            document.getElementById('article-modal').style.display = 'flex';
+
+            setTimeout(renderRecommended, 200);
+        };
+
+        window.handleSearchInput = (event) => {
+            searchQuery = event.target.value;
+            currentPage = 1;
+            renderFeed();
+            renderRecommended();
+            const dropdown = document.getElementById('searchDropdown');
+            dropdown.innerHTML = '';
+            if (searchQuery.length > 1) {
+                const results = articles.filter(a => a.title.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 4);
+                if (results.length > 0) {
+                    dropdown.classList.remove('hidden');
+                    results.forEach(res => {
+                        const item = document.createElement('div');
+                        item.className = 'px-5 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-0';
+                        item.innerHTML = `<div class="text-xs font-bold text-yellow-500 mb-1 uppercase tracking-wide">${res.category}</div><div class="font-medium text-sm">${res.title}</div>`;
+                        item.addEventListener('click', () => {
+                            document.getElementById('searchInput').value = res.title;
+                            searchQuery = res.title;
+                            currentPage = 1;
+                            renderFeed();
+                            renderRecommended();
+                            dropdown.classList.add('hidden');
+                        });
+                        dropdown.appendChild(item);
+                    });
+                } else {
+                    dropdown.innerHTML = '<div class="px-5 py-3 text-sm opacity-50 italic">No results found.</div>';
+                    dropdown.classList.remove('hidden');
+                }
+            } else {
+                dropdown.classList.add('hidden');
+            }
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#searchInput') && !e.target.closest('#searchDropdown')) {
+                const dropdown = document.getElementById('searchDropdown');
+                if (dropdown) dropdown.classList.add('hidden');
+            }
+        });
+
+        // =============================================
+        // ADMIN MODE & TEXT SCALING
+        // =============================================
+        window.toggleAdminMode = () => {
+            if (!isAdminMode && !isAdminSessionActive()) {
+                window.openAdminModal();
+                return;
+            }
+
+            isAdminMode = !isAdminMode;
+            const bar = document.getElementById('admin-toolbar');
+
+            if (isAdminMode) {
+                bar.classList.remove('hidden');
+                bar.classList.add('flex');
+                document.body.classList.add('admin-active');
+            } else {
+                bar.classList.add('hidden');
+                bar.classList.remove('flex');
+                document.body.classList.remove('admin-active');
+                window.closeLinkEditor();
+            }
+            applyAdminState();
+        };
+
+        function applyAdminState() {
+            document.querySelectorAll('.editable-text').forEach(el => {
+                el.setAttribute('contenteditable', isAdminMode);
+            });
+        }
+
+        window.adjustTextSize = (delta) => {
+            textScale += delta;
+            textScale = Math.max(0.5, Math.min(2.0, textScale));
+            document.getElementById('textSizeDisplay').innerText = textScale.toFixed(1) + 'x';
+            applyTextScale();
+        };
+
+        function applyTextScale() {
+            document.querySelectorAll('.editable-text').forEach(el => {
+                if (!el.dataset.baseSize) {
+                    el.dataset.baseSize = parseFloat(window.getComputedStyle(el).fontSize);
+                }
+                const newSize = parseFloat(el.dataset.baseSize) * textScale;
+                el.style.setProperty('font-size', `${newSize}px`, 'important');
+                el.style.setProperty('line-height', `calc(${newSize}px * 1.4)`, 'important');
+            });
+        }
+
+        // =============================================
+        // SUBSCRIBER MANAGEMENT
+        // =============================================
+        const CW_SUBS_KEY = 'cw_subscribers';
+
+        function getSubscribers() {
+            try { return JSON.parse(localStorage.getItem(CW_SUBS_KEY) || '[]'); } catch(e) { return []; }
+        }
+
+        function addSubscriberLocally(email) {
+            const subs = getSubscribers();
+            if (subs.some(s => s.email === email)) return; // no duplicates
+            subs.push({ email, date: new Date().toLocaleDateString('en-US', { month:'short', day:'2-digit', year:'numeric' }) });
+            localStorage.setItem(CW_SUBS_KEY, JSON.stringify(subs));
+            updateSubscriberBadge();
+        }
+
+        function updateSubscriberBadge() {
+            const badge = document.getElementById('subscriber-count-badge');
+            if (!badge) return;
+            const count = getSubscribers().length;
+            if (count > 0) {
+                badge.textContent = count;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        window.openNewsletter = function() {
+            const subs = getSubscribers();
+            const latest = articles[0];
+
+            // Pre-fill subject
+            const subject = latest ? `New on CommerceWorld: ${latest.title}` : 'New content on CommerceWorld';
+
+            // Pre-fill body
+            const body = latest
+                ? `Hi there,\n\nWe just published a new article you might enjoy:\n\n${latest.title}\n${latest.date} · ${latest.category}\n\n${latest.excerpt}\n\nRead the full article on CommerceWorld.\n\n---\nYou're receiving this because you subscribed to CommerceWorld.\nReply to unsubscribe.`
+                : 'Hi,\n\nWe have new content waiting for you on CommerceWorld!\n\n---\nReply to unsubscribe.';
+
+            document.getElementById('nl-subject').value = subject;
+            document.getElementById('nl-body').value = body;
+
+            // Render subscriber count
+            document.getElementById('nl-count-text').textContent =
+                subs.length === 0 ? 'No subscribers yet'
+                : subs.length === 1 ? '1 subscriber'
+                : `${subs.length} subscribers`;
+
+            // Render subscriber list
+            const listEl = document.getElementById('nl-subscriber-list');
+            if (subs.length === 0) {
+                listEl.innerHTML = `<p class="text-xs opacity-40 text-center py-3">No subscribers yet. People who sign up will appear here.</p>`;
+            } else {
+                listEl.innerHTML = subs.map((s, i) => `
+                    <div class="flex items-center justify-between text-xs py-1 px-2 rounded-lg hover:bg-gray-100 group">
+                        <span class="font-medium">${s.email}</span>
+                        <div class="flex items-center gap-3">
+                            <span class="opacity-40">${s.date}</span>
+                            <button onclick="window.removeSubscriber(${i})" class="opacity-0 group-hover:opacity-60 hover:!opacity-100 text-red-500 transition cursor-pointer">✕</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('newsletter-modal').style.display = 'flex';
+        };
+
+        window.removeSubscriber = function(index) {
+            const subs = getSubscribers();
+            subs.splice(index, 1);
+            localStorage.setItem(CW_SUBS_KEY, JSON.stringify(subs));
+            updateSubscriberBadge();
+            window.openNewsletter(); // re-render
+        };
+
+        window.clearAllSubscribers = function() {
+            if (!confirm('Remove all subscribers from this device? This cannot be undone.')) return;
+            localStorage.removeItem(CW_SUBS_KEY);
+            updateSubscriberBadge();
+            window.openNewsletter();
+        };
+
+        window.sendViaEmailApp = function() {
+            const subs = getSubscribers();
+            const subject = encodeURIComponent(document.getElementById('nl-subject').value);
+            const body    = encodeURIComponent(document.getElementById('nl-body').value);
+            const bcc     = subs.map(s => s.email).join(',');
+            const mailto  = `mailto:?bcc=${encodeURIComponent(bcc)}&subject=${subject}&body=${body}`;
+            window.location.href = mailto;
+        };
+
+        window.copyEmailList = function() {
+            const subs = getSubscribers();
+            if (subs.length === 0) { alert('No subscribers yet.'); return; }
+            const emails = subs.map(s => s.email).join(', ');
+            navigator.clipboard.writeText(emails).then(() => {
+                const btn = event.target;
+                const orig = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                setTimeout(() => { btn.textContent = orig; }, 2000);
+            });
+        };
+
+        window.exportSubscribers = function() {
+            const subs = getSubscribers();
+            if (subs.length === 0) { alert('No subscribers yet.'); return; }
+            const csv = 'Email,Date Subscribed\n' + subs.map(s => `${s.email},${s.date}`).join('\n');
+            const a = document.createElement('a');
+            a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+            a.download = 'commerceworld-subscribers.csv';
+            a.click();
+        };
+
+        window.handleSubscribe = (event, form) => {
+            event.preventDefault();
+            const btn = form.querySelector('button');
+            const emailInput = form.querySelector('input[type="email"]');
+            const subscriberEmail = emailInput.value.trim();
+            if (!subscriberEmail) return;
+
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<svg class="animate-spin h-5 w-5 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
+
+            // Always save locally first — works even without FormSubmit activation
+            addSubscriberLocally(subscriberEmail);
+
+            fetch('https://formsubmit.co/ajax/sumitkumar099912@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: 'New CommerceWorld Subscriber',
+                    _captcha: 'false',
+                    email: subscriberEmail,
+                    message: `New subscriber: ${subscriberEmail}`
+                })
+            })
+            .then(res => res.json())
+            .then(() => {
+                btn.innerHTML = `<span>✓ Subscribed!</span>`;
+                btn.classList.replace('bg-black', 'bg-green-600');
+                emailInput.value = '';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.replace('bg-green-600', 'bg-black');
+                    btn.disabled = false;
+                }, 4000);
+            })
+            .catch(() => {
+                // Email saved locally even if FormSubmit fails
+                btn.innerHTML = `<span>✓ Subscribed!</span>`;
+                btn.classList.replace('bg-black', 'bg-green-600');
+                emailInput.value = '';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.replace('bg-green-600', 'bg-black');
+                    btn.disabled = false;
+                }, 4000);
+            });
+        };
+
+        // =============================================
+        // ARTICLE MANAGEMENT (localStorage CMS)
+        // =============================================
+        window.openAddArticle = function(editId) {
+            const modal = document.getElementById('article-editor-modal');
+            const titleEl = document.getElementById('aem-title');
+            const delBtn = document.getElementById('aem-delete-btn');
+            const errEl = document.getElementById('aem-error');
+            errEl.classList.add('hidden');
+
+            if (editId) {
+                const a = articles.find(x => x.id === editId);
+                if (!a) return;
+                titleEl.textContent = 'Edit Article';
+                document.getElementById('aem-title-input').value = a.title;
+                document.getElementById('aem-category').value = a.category;
+                document.getElementById('aem-image').value = a.image || '';
+                document.getElementById('aem-excerpt').value = a.excerpt;
+                document.getElementById('aem-content').value = a.content;
+                document.getElementById('aem-editing-id').value = editId;
+                delBtn.classList.remove('hidden');
+            } else {
+                titleEl.textContent = 'New Article';
+                document.getElementById('aem-title-input').value = '';
+                document.getElementById('aem-category').value = 'Web3';
+                document.getElementById('aem-image').value = '';
+                document.getElementById('aem-excerpt').value = '';
+                document.getElementById('aem-content').value = '';
+                document.getElementById('aem-editing-id').value = '';
+                delBtn.classList.add('hidden');
+            }
+            modal.style.display = 'flex';
+            setTimeout(() => document.getElementById('aem-title-input').focus(), 100);
+        };
+
+        window.saveArticleFromModal = function() {
+            const errEl = document.getElementById('aem-error');
+            errEl.classList.add('hidden');
+            const title   = document.getElementById('aem-title-input').value.trim();
+            const cat     = document.getElementById('aem-category').value;
+            const image   = document.getElementById('aem-image').value.trim();
+            const excerpt = document.getElementById('aem-excerpt').value.trim();
+            const content = document.getElementById('aem-content').value.trim();
+            const editId  = document.getElementById('aem-editing-id').value;
+
+            if (!title || !excerpt || !content) {
+                errEl.textContent = 'Title, Excerpt and Content are required.';
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', { month:'short', day:'2-digit', year:'numeric' });
+
+            const article = {
+                id: editId || ('cw_' + Date.now()),
+                title, category: cat, date: dateStr,
+                image: image || `https://picsum.photos/seed/${Date.now()}/700/400`,
+                excerpt, content
+            };
+
+            saveCustomArticle(article);
+            document.getElementById('article-editor-modal').style.display = 'none';
+            currentPage = 1;
+            renderFeed();
+            renderThisWeek();
+            renderRecommended();
+        };
+
+        window.confirmDeleteArticle = function() {
+            const editId = document.getElementById('aem-editing-id').value;
+            if (!editId) return;
+            if (!confirm('Delete this article? This cannot be undone.')) return;
+            deleteCustomArticle(editId);
+            document.getElementById('article-editor-modal').style.display = 'none';
+            currentPage = 1;
+            renderFeed();
+            renderThisWeek();
+            renderRecommended();
+        };
+
+        // =============================================
+        // INIT
+        // =============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            loadArticles();
+            loadFooterLinks();
+            syncAdminUI();
+            updateSubscriberBadge();
+            renderFeed();
+            renderThisWeek();
+            renderRecommended();
+        });
+    </script>
+</body>
+</html>
