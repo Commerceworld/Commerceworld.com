@@ -1,1 +1,12 @@
-blogging
+media: public/assets
+content:
+  - name: settings
+    label: Site Settings
+    type: file           # Use 'file' for single file configuration
+    path: data/settings.json
+    fields:
+      - name: site_name
+        type: string
+      - name: description
+        type: text
+        
